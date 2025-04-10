@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Reports</title>
+</head>
+<body>
+    <!-- Here i am adding inline style instead of external css since its a small app  -->
+    <h2 style="color:red">Monthly Spending Report</h2>   
+    <form action="/report/monthly" method="GET">
+        Year: <input type="number" name="year"><br>
+        Month: <input type="number" name="month"><br>
+        <button style="background-color:darkgoldenrod" type="submit">View  your monthly report</button>
+    </form>
+
+    <h2 style="color:rgb(5, 82, 82)">Category-wise Report</h2>
+    <form action="/report/category" method="GET">
+        Month (YYYY-MM): <input style="width: 200px;" type="text" name="month"><br>
+        Category:
+        <select name="category" style="width: 200px;">
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select><br>
+        <button style="background-color: aqua;" type="submit">View Category Report</button>
+    </form>
+</body>
+</html>
